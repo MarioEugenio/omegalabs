@@ -1,0 +1,199 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="OmegaModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="OmegaModelStoreContainer">
+    <EntitySet Name="CID_CIDADE" EntityType="OmegaModel.Store.CID_CIDADE" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CON_CONCURSO" EntityType="OmegaModel.Store.CON_CONCURSO" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="EST_ESTADO" EntityType="OmegaModel.Store.EST_ESTADO" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="FAQ_PERGUNTAS" EntityType="OmegaModel.Store.FAQ_PERGUNTAS" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="NOT_NOTICIA" EntityType="OmegaModel.Store.NOT_NOTICIA" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="STA_STATUS" EntityType="OmegaModel.Store.STA_STATUS" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="SUB_SUBSTANCIA" EntityType="OmegaModel.Store.SUB_SUBSTANCIA" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="USR_USUARIO" EntityType="OmegaModel.Store.USR_USUARIO" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_CON_CONC_REFERENCE_CID_CIDA" Association="OmegaModel.Store.FK_CON_CONC_REFERENCE_CID_CIDA">
+      <End Role="CID_CIDADE" EntitySet="CID_CIDADE" />
+      <End Role="CON_CONCURSO" EntitySet="CON_CONCURSO" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CON_CONC_REFERENCE_EST_ESTA" Association="OmegaModel.Store.FK_CON_CONC_REFERENCE_EST_ESTA">
+      <End Role="EST_ESTADO" EntitySet="EST_ESTADO" />
+      <End Role="CON_CONCURSO" EntitySet="CON_CONCURSO" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CON_CONC_REFERENCE_STA_STAT" Association="OmegaModel.Store.FK_CON_CONC_REFERENCE_STA_STAT">
+      <End Role="STA_STATUS" EntitySet="STA_STATUS" />
+      <End Role="CON_CONCURSO" EntitySet="CON_CONCURSO" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FAQ_PERG_REFERENCE_STA_STAT" Association="OmegaModel.Store.FK_FAQ_PERG_REFERENCE_STA_STAT">
+      <End Role="STA_STATUS" EntitySet="STA_STATUS" />
+      <End Role="FAQ_PERGUNTAS" EntitySet="FAQ_PERGUNTAS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_NOT_NOTI_REFERENCE_STA_STAT" Association="OmegaModel.Store.FK_NOT_NOTI_REFERENCE_STA_STAT">
+      <End Role="STA_STATUS" EntitySet="STA_STATUS" />
+      <End Role="NOT_NOTICIA" EntitySet="NOT_NOTICIA" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SUB_SUBS_REFERENCE_STA_STAT" Association="OmegaModel.Store.FK_SUB_SUBS_REFERENCE_STA_STAT">
+      <End Role="STA_STATUS" EntitySet="STA_STATUS" />
+      <End Role="SUB_SUBSTANCIA" EntitySet="SUB_SUBSTANCIA" />
+    </AssociationSet>
+    <AssociationSet Name="FK_USR_USUA_REFERENCE_STA_STAT" Association="OmegaModel.Store.FK_USR_USUA_REFERENCE_STA_STAT">
+      <End Role="STA_STATUS" EntitySet="STA_STATUS" />
+      <End Role="USR_USUARIO" EntitySet="USR_USUARIO" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="CID_CIDADE">
+    <Key>
+      <PropertyRef Name="CID_ID" />
+    </Key>
+    <Property Name="CID_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CID_NOME" Type="varchar" Nullable="false" MaxLength="150" />
+  </EntityType>
+  <EntityType Name="CON_CONCURSO">
+    <Key>
+      <PropertyRef Name="CON_ID" />
+    </Key>
+    <Property Name="CON_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CON_NOME" Type="varchar" Nullable="false" MaxLength="255" />
+    <Property Name="STA_ID" Type="int" Nullable="false" />
+    <Property Name="CID_ID" Type="int" Nullable="false" />
+    <Property Name="EST_ID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="EST_ESTADO">
+    <Key>
+      <PropertyRef Name="EST_ID" />
+    </Key>
+    <Property Name="EST_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EST_NOME" Type="varchar" Nullable="false" MaxLength="150" />
+  </EntityType>
+  <EntityType Name="FAQ_PERGUNTAS">
+    <Key>
+      <PropertyRef Name="FAQ_ID" />
+    </Key>
+    <Property Name="FAQ_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FAQ_TITULO" Type="varchar" Nullable="false" MaxLength="255" />
+    <Property Name="FAQ_PERGUNTA" Type="varchar(max)" Nullable="false" />
+    <Property Name="FAQ_RESPOSTA" Type="varchar(max)" Nullable="false" />
+    <Property Name="STA_ID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="NOT_NOTICIA">
+    <Key>
+      <PropertyRef Name="NOT_ID" />
+    </Key>
+    <Property Name="NOT_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NOT_TITULO" Type="varchar" Nullable="false" MaxLength="255" />
+    <Property Name="NOT_PREVIA" Type="varchar" Nullable="false" MaxLength="255" />
+    <Property Name="NOT_TEXTO" Type="varchar(max)" Nullable="false" />
+    <Property Name="NOT_INCLUSAO" Type="datetime" Nullable="false" />
+    <Property Name="NOT_ALTERACAO" Type="datetime" Nullable="true" />
+    <Property Name="NOT_PUBICACAO" Type="datetime" Nullable="true" />
+    <Property Name="STA_ID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="STA_STATUS">
+    <Key>
+      <PropertyRef Name="STA_ID" />
+    </Key>
+    <Property Name="STA_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="STA_NOME" Type="varchar" Nullable="false" MaxLength="150" />
+  </EntityType>
+  <EntityType Name="SUB_SUBSTANCIA">
+    <Key>
+      <PropertyRef Name="SUB_ID" />
+    </Key>
+    <Property Name="SUB_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="STA_ID" Type="int" Nullable="false" />
+    <Property Name="SUB_NOME" Type="varchar" Nullable="false" MaxLength="255" />
+    <Property Name="DER_ID" Type="int" Nullable="true" />
+    <Property Name="SUB_DETALHES" Type="varchar(max)" Nullable="true" />
+  </EntityType>
+  <EntityType Name="USR_USUARIO">
+    <Key>
+      <PropertyRef Name="USR_ID" />
+    </Key>
+    <Property Name="USR_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="USR_NOME" Type="varchar" Nullable="false" MaxLength="150" />
+    <Property Name="USR_EMAIL" Type="varchar" Nullable="false" MaxLength="200" />
+    <Property Name="USR_SENHA" Type="varchar" Nullable="false" MaxLength="100" />
+    <Property Name="STA_ID" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_CON_CONC_REFERENCE_CID_CIDA">
+    <End Role="CID_CIDADE" Type="OmegaModel.Store.CID_CIDADE" Multiplicity="1" />
+    <End Role="CON_CONCURSO" Type="OmegaModel.Store.CON_CONCURSO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CID_CIDADE">
+        <PropertyRef Name="CID_ID" />
+      </Principal>
+      <Dependent Role="CON_CONCURSO">
+        <PropertyRef Name="CID_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CON_CONC_REFERENCE_EST_ESTA">
+    <End Role="EST_ESTADO" Type="OmegaModel.Store.EST_ESTADO" Multiplicity="1" />
+    <End Role="CON_CONCURSO" Type="OmegaModel.Store.CON_CONCURSO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EST_ESTADO">
+        <PropertyRef Name="EST_ID" />
+      </Principal>
+      <Dependent Role="CON_CONCURSO">
+        <PropertyRef Name="EST_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CON_CONC_REFERENCE_STA_STAT">
+    <End Role="STA_STATUS" Type="OmegaModel.Store.STA_STATUS" Multiplicity="1" />
+    <End Role="CON_CONCURSO" Type="OmegaModel.Store.CON_CONCURSO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="STA_STATUS">
+        <PropertyRef Name="STA_ID" />
+      </Principal>
+      <Dependent Role="CON_CONCURSO">
+        <PropertyRef Name="STA_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FAQ_PERG_REFERENCE_STA_STAT">
+    <End Role="STA_STATUS" Type="OmegaModel.Store.STA_STATUS" Multiplicity="1" />
+    <End Role="FAQ_PERGUNTAS" Type="OmegaModel.Store.FAQ_PERGUNTAS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="STA_STATUS">
+        <PropertyRef Name="STA_ID" />
+      </Principal>
+      <Dependent Role="FAQ_PERGUNTAS">
+        <PropertyRef Name="STA_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_NOT_NOTI_REFERENCE_STA_STAT">
+    <End Role="STA_STATUS" Type="OmegaModel.Store.STA_STATUS" Multiplicity="1" />
+    <End Role="NOT_NOTICIA" Type="OmegaModel.Store.NOT_NOTICIA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="STA_STATUS">
+        <PropertyRef Name="STA_ID" />
+      </Principal>
+      <Dependent Role="NOT_NOTICIA">
+        <PropertyRef Name="STA_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SUB_SUBS_REFERENCE_STA_STAT">
+    <End Role="STA_STATUS" Type="OmegaModel.Store.STA_STATUS" Multiplicity="1" />
+    <End Role="SUB_SUBSTANCIA" Type="OmegaModel.Store.SUB_SUBSTANCIA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="STA_STATUS">
+        <PropertyRef Name="STA_ID" />
+      </Principal>
+      <Dependent Role="SUB_SUBSTANCIA">
+        <PropertyRef Name="STA_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_USR_USUA_REFERENCE_STA_STAT">
+    <End Role="STA_STATUS" Type="OmegaModel.Store.STA_STATUS" Multiplicity="1" />
+    <End Role="USR_USUARIO" Type="OmegaModel.Store.USR_USUARIO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="STA_STATUS">
+        <PropertyRef Name="STA_ID" />
+      </Principal>
+      <Dependent Role="USR_USUARIO">
+        <PropertyRef Name="STA_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

@@ -1,0 +1,54 @@
+﻿@font-face {
+  font-family: 'fontello';
+  src: ~"url('@{icon-font-path}@{icon-font-name-fontello}.eot?')";
+  src: ~"url('@{icon-font-path}@{icon-font-name-fontello}.eot?#iefix') format('embedded-opentype')",
+       ~"url('@{icon-font-path}@{icon-font-name-fontello}.woff') format('woff')",
+       ~"url('@{icon-font-path}@{icon-font-name-fontello}.ttf') format('truetype')",
+       ~"url('@{icon-font-path}@{icon-font-name-fontello}.svg#fontello') format('svg')";
+}
+
+.fontello {
+  font-family: "fontello";
+  font-style: normal;
+  font-weight: normal;
+  speak: none;
+ 
+  display: inline-block;
+  text-decoration: inherit;
+  width: 1em;
+  margin-right: .2em;
+  text-align: center;
+  /* opacity: .8; */
+ 
+  /* For safety - reset parent styles, that can break glyph codes*/
+  font-variant: normal;
+  text-transform: none;
+     
+  /* fix buttons height, for twitter bootstrap */
+  line-height: 1em;
+ 
+  /* Animation center compensation - margins should be symmetric */
+  /* remove if not needed */
+  margin-left: .2em;
+ 
+  /* you can be more comfortable with increased icons size */
+  /* font-size: 120%; */
+ 
+  /* Uncomment for 3D effect */
+  /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
+
+  &:empty {
+    width: 1em;
+  }
+}
+ 
+
+.icon-newspaper            { &:before { content: '\e800'; } }
+.icon-legal                { &:before { content: '\e801'; } }
+.icon-help-1               { &:before { content: '\e802'; } }
+.icon-chat-empty           { &:before { content: '\e803'; } } 
+.icon-ruim                 { &:before { content: '\e804'; } }
+.icon-pesquisa             { &:before { content: '\e805'; } }
+.icon-click                { &:before { content: '\e806'; } }
+.icon-mais                 { &:before { content: '\e807'; } }
+.icon-sort                 { &:before { content: '\e808'; } }

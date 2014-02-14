@@ -1,0 +1,116 @@
+﻿@{
+}
+<!-- Barra de pesquisa -->
+<div class="container-full" ng-controller="PesquisaSubstanciaCtrl">
+    <div class="row cabecalho-pesquisa">
+        <div class="col-md-3 logo-omega"><a class="brand" href="/"> <img src="../Images/layout/omega_logo.png"></a></div>
+        <div class="col-md-9">
+            <h4>Pesquise substâncias</h4>
+            <p>Pesquise sobre uma determinada substância e veja se é detectada no toxicológico.</p>
+            <div class="input-group col-lg-8" id='substancia-pesquisa'>
+                <input type="text" name="substancia" class="form-control" placeholder="Digite a substância" id="substancia" ng-model="query" ng-change="search()">
+            </div>
+        </div>
+    </div>
+    <!-- Fim da Barra de pesquisa -->
+    <!-- Resultado Pesquisa -->
+    <div class="widget">
+        <div class="widget-head">
+            <div class="pull-left">Listando um total de {{ itemsPerPage }} registros por página</div>
+            <div class="widget-icons pull-right">
+                <a href="#" class="wminimize"><i class="icon-chevron-up"></i></a>
+                <a href="#" class="wclose"><i class="icon-remove"></i></a>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+
+        <div class="widget-content">
+
+            <table class="table table-striped table-bordered table-hover gridpesquisa">
+                <thead>
+                    <tr>
+                        <th class="col-sm-4">Nome <a ng-click="sort_by('SUB_NOME')"><span class="fontello icon-sort"></span></a></th>
+                        <th class="col-sm-4">Derivado <a ng-click="sort_by('DER_NOME')"><span class="fontello icon-sort"></span></a></th>
+                        <th class="col-sm-2">Status <a ng-click="sort_by('STA_NOME')"><span class="fontello icon-sort"></span></a></th>
+                        <th class="col-sm-1">Detalhes</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="item in pagedItems[currentPage] | orderBy:sortingOrder:reverse">
+                        <td>{{ item.SUB_NOME }}</td>
+                        <td>{{ item.DER_NOME }}</td>
+                        <td>
+                            <span ng-if="item.STA_NOME == 'Não Detectada'" class="label label-success">{{ item.STA_NOME }}</span>
+                            <span ng-if="item.STA_NOME == 'Detectada'" class="label label-danger">{{ item.STA_NOME }}</span>
+                        </td>
+                        <td><a href="#myModal" data-toggle="modal" ng-click="getsubstancia(item.SUB_ID)"><span class="fontello icon-click" title="Clique aqui para maiores detalhes"></span></a></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="widget-foot">
+                <div class="pull-right">
+                    Total de substâncias encontradas: {{filteredItems.length}}
+                </div>
+                <div class="pull-right">
+                    <ul class="pagination">
+                        <li ng-class="{disabled: currentPage == 0}">
+                            <a href ng-click="prevPage()">« Prev</a>
+                        </li>
+                        <li ng-repeat="n in range(pagedItems.length)"
+                            ng-class="{active: n == currentPage}"
+                            ng-click="setPage()">
+                            <a href ng-bind="n + 1">1</a>
+                        </li>
+                        <li ng-class="{disabled: currentPage == pagedItems.length - 1}">
+                            <a href ng-click="nextPage()">Next »</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal HTML -->
+    <div id="myModal" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4>Detalhes dessa substância:</h4>
+
+                </div>
+                <div class="modal-body">
+                    <p>Nome: <strong><span class="text-info"> {{ substancia.SUB_NOME }} </span></strong></p>
+                    <p>Derivado da(o): <strong><span class="text-info"> {{ substancia.DER_NOME }} </span></strong></p>
+                    <p>
+                        STATUS: 
+                        <span ng-if="substancia.STA_NOME == 'Não Detectada'" class="label label-success">{{ substancia.STA_NOME }}</span>
+                        <span ng-if="substancia.STA_NOME == 'Detectada'" class="label label-danger">{{ substancia.STA_NOME }}</span>
+
+                    </p>
+                    <p>Detalhes:</p>
+                    <p><strong><span class="text-info">{{ substancia.SUB_DETALHES }} </span></strong></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<!-- Fim da Barra de pesquisa -->
+@section scripts
+{
+    <script type="text/javascript">
+        var sortingOrder = 'name';
+    </script>
+
+    @Scripts.Render("~/Content/js/pesquisa.js")
+}
+

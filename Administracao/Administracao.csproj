@@ -1,0 +1,465 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{6B046A4E-7BF6-40E2-ABC8-6295D8DD4411}</ProjectGuid>
+    <ProjectTypeGuids>{E3E379DF-F4C6-4180-9B81-6769533ABE47};{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Administracao</RootNamespace>
+    <AssemblyName>Administracao</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.4.5.6\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.4.0.20710.0\lib\net40\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.4.0.20710.0\lib\net40\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.4.0.20710.0\lib\net40\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.4.0.20710.0\lib\net40\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.0.0\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Providers">
+      <HintPath>..\packages\Microsoft.AspNet.Providers.Core.1.1\lib\net40\System.Web.Providers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.2.0.20710.0\lib\net40\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.1.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.1.0\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\SubstanciaController.cs" />
+    <Compile Include="Core\Abstract\Business\BusinessAbstract.cs" />
+    <Compile Include="Core\Abstract\Controllers\ControllerAbstract.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SubstanciaModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Global.asax" />
+    <Content Include="Src\app\initial\mainController.js" />
+    <Content Include="Src\app\initial\mainRouter.js" />
+    <Content Include="Src\app\initial\initialRouter.js" />
+    <Content Include="Src\app\initial\loginController.js" />
+    <Content Include="Src\app\substancia\initRouter.js" />
+    <Content Include="Src\app\substancia\pesquisaController.js" />
+    <Content Include="Src\app\substancia\substanciaController.js" />
+    <Content Include="Src\css\app.css" />
+    <Content Include="Src\css\bootstrap-theme.css" />
+    <Content Include="Src\css\bootstrap-theme-min.css" />
+    <Content Include="Src\css\bootstrap.css" />
+    <Content Include="Src\css\bootstrap-min.css" />
+    <Content Include="Src\css\main.css" />
+    <Content Include="Src\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Src\js\bootstrap.js" />
+    <Content Include="Src\js\bootstrap-min.js" />
+    <Content Include="Src\js\core.js" />
+    <Content Include="Src\js\externals\angular\angular-route.js" />
+    <Content Include="Src\js\externals\angular\angular-strap\.gitattributes" />
+    <Content Include="Src\js\externals\angular\angular-strap\.gitignore" />
+    <Content Include="Src\js\externals\angular\angular-strap\dist\angular-strap.js" />
+    <Content Include="Src\js\externals\angular\angular-strap\dist\angular-strap-min.js" />
+    <Content Include="Src\js\externals\angular\angular-strap\dist\angular-strap.tpl.js" />
+    <Content Include="Src\js\externals\angular\angular-strap\dist\angular-strap-tpl-min.js" />
+    <Content Include="Src\js\externals\angular\angular-strap\dist\modules\affix.js" />
+    <Content Include="Src\js\externals\angular\angular-strap\dist\modules\affix.min.js" />
+    <Content Include="Src\js\externals\angular\angular-strap\dist\modules\alert.js" />
+    <Content Include="Src\js\externals\angular\angular-strap\dist\modules\alert.min.js" />
+    <Content Include="Src\js\externals\angular\angular-strap\dist\modules\aside.js" />
+    <Content Include="Src\js\externals\angular\angular-strap\dist\modules\aside.min.js" />
+    <Content Include="Src\js\externals\angular\angular-strap\dist\modules\aside.tpl.js" />
+    <Content Include="Src\js\externals\angular\angular-strap\dist\modules\aside.tpl.min.js" />
+    <Content Include="Src\js\externals\angular\angular-strap\dist\modules\button.js" />
+    <Content Include="Src\js\externals\angular\angular-strap\dist\modules\button.min.js" />
+    <Content Include="Src\js\externals\angular\angular-strap\dist\modules\date-parser.js" />
+    <Content Include="Src\js\externals\angular\angular-strap\dist\modules\date-parser.min.js" />
+    <Content Include="Src\js\externals\angular\angular-strap\dist\modules\datepicker.js" />
+    <Content Include="Src\js\externals\angular\angular-strap\dist\modules\datepicker.min.js" />
+    <Content Include="Src\js\externals\angular\angular-strap\dist\modules\datepicker.tpl.js" />
+    <Content Include="Src\js\externals\angular\angular-strap\dist\modules\datepicker.tpl.min.js" />
+    <Content Include="Src\js\externals\angular\angular-strap\dist\modules\debounce.js" />
+    <Content Include="Src\js\externals\angular\angular-strap\dist\modules\debounce.min.js" />
+    <Content Include="Src\js\externals\angular\angular-strap\dist\modules\dimensions.js" />
+    <Content Include="Src\js\externals\angular\angular-strap\dist\modules\dimensions.min.js" />
+    <Content Include="Src\js\externals\angular\angular-strap\dist\modules\dropdown.js" />
+    <Content Include="Src\js\externals\angular\angular-strap\dist\modules\dropdown.min.js" />
+    <Content Include="Src\js\externals\angular\angular-strap\dist\modules\dropdown.tpl.js" />
+    <Content Include="Src\js\externals\angular\angular-strap\dist\modules\dropdown.tpl.min.js" />
+    <Content Include="Src\js\externals\angular\angular-strap\dist\modules\modal.js" />
+    <Content Include="Src\js\externals\angular\angular-strap\dist\modules\modal.min.js" />
+    <Content Include="Src\js\externals\angular\angular-strap\dist\modules\modal.tpl.js" />
+    <Content Include="Src\js\externals\angular\angular-strap\dist\modules\modal.tpl.min.js" />
+    <Content Include="Src\js\externals\angular\angular-strap\dist\modules\module.js" />
+    <Content Include="Src\js\externals\angular\angular-strap\dist\modules\module.min.js" />
+    <Content Include="Src\js\externals\angular\angular-strap\dist\modules\navbar.js" />
+    <Content Include="Src\js\externals\angular\angular-strap\dist\modules\navbar.min.js" />
+    <Content Include="Src\js\externals\angular\angular-strap\dist\modules\parse-options.js" />
+    <Content Include="Src\js\externals\angular\angular-strap\dist\modules\parse-options.min.js" />
+    <Content Include="Src\js\externals\angular\angular-strap\dist\modules\popover.js" />
+    <Content Include="Src\js\externals\angular\angular-strap\dist\modules\popover.min.js" />
+    <Content Include="Src\js\externals\angular\angular-strap\dist\modules\popover.tpl.js" />
+    <Content Include="Src\js\externals\angular\angular-strap\dist\modules\popover.tpl.min.js" />
+    <Content Include="Src\js\externals\angular\angular-strap\dist\modules\scrollspy.js" />
+    <Content Include="Src\js\externals\angular\angular-strap\dist\modules\scrollspy.min.js" />
+    <Content Include="Src\js\externals\angular\angular-strap\dist\modules\select.js" />
+    <Content Include="Src\js\externals\angular\angular-strap\dist\modules\select.min.js" />
+    <Content Include="Src\js\externals\angular\angular-strap\dist\modules\select.tpl.js" />
+    <Content Include="Src\js\externals\angular\angular-strap\dist\modules\select.tpl.min.js" />
+    <Content Include="Src\js\externals\angular\angular-strap\dist\modules\tab.js" />
+    <Content Include="Src\js\externals\angular\angular-strap\dist\modules\tab.min.js" />
+    <Content Include="Src\js\externals\angular\angular-strap\dist\modules\tab.tpl.js" />
+    <Content Include="Src\js\externals\angular\angular-strap\dist\modules\tab.tpl.min.js" />
+    <Content Include="Src\js\externals\angular\angular-strap\dist\modules\timepicker.js" />
+    <Content Include="Src\js\externals\angular\angular-strap\dist\modules\timepicker.min.js" />
+    <Content Include="Src\js\externals\angular\angular-strap\dist\modules\timepicker.tpl.js" />
+    <Content Include="Src\js\externals\angular\angular-strap\dist\modules\timepicker.tpl.min.js" />
+    <Content Include="Src\js\externals\angular\angular-strap\dist\modules\tooltip.js" />
+    <Content Include="Src\js\externals\angular\angular-strap\dist\modules\tooltip.min.js" />
+    <Content Include="Src\js\externals\angular\angular-strap\dist\modules\tooltip.tpl.js" />
+    <Content Include="Src\js\externals\angular\angular-strap\dist\modules\tooltip.tpl.min.js" />
+    <Content Include="Src\js\externals\angular\angular-strap\dist\modules\typeahead.js" />
+    <Content Include="Src\js\externals\angular\angular-strap\dist\modules\typeahead.min.js" />
+    <Content Include="Src\js\externals\angular\angular-strap\dist\modules\typeahead.tpl.js" />
+    <Content Include="Src\js\externals\angular\angular-strap\dist\modules\typeahead.tpl.min.js" />
+    <Content Include="Src\js\externals\angular\angular-strap\Gruntfile.js" />
+    <Content Include="Src\js\externals\angular\angular-strap\src\affix\affix.js" />
+    <Content Include="Src\js\externals\angular\angular-strap\src\affix\docs\affix.demo.html" />
+    <Content Include="Src\js\externals\angular\angular-strap\src\affix\test\affix.spec.js" />
+    <Content Include="Src\js\externals\angular\angular-strap\src\alert\alert.js" />
+    <Content Include="Src\js\externals\angular\angular-strap\src\alert\docs\alert.demo.html" />
+    <Content Include="Src\js\externals\angular\angular-strap\src\alert\docs\alert.demo.js" />
+    <Content Include="Src\js\externals\angular\angular-strap\src\alert\docs\alert.tpl.demo.html" />
+    <Content Include="Src\js\externals\angular\angular-strap\src\alert\test\alert.spec.js" />
+    <Content Include="Src\js\externals\angular\angular-strap\src\aside\aside.js" />
+    <Content Include="Src\js\externals\angular\angular-strap\src\aside\aside.tpl.html" />
+    <Content Include="Src\js\externals\angular\angular-strap\src\aside\docs\aside.demo.html" />
+    <Content Include="Src\js\externals\angular\angular-strap\src\aside\docs\aside.demo.js" />
+    <Content Include="Src\js\externals\angular\angular-strap\src\aside\docs\aside.tpl.demo.html" />
+    <Content Include="Src\js\externals\angular\angular-strap\src\aside\test\aside.spec.js" />
+    <Content Include="Src\js\externals\angular\angular-strap\src\button\button.js" />
+    <Content Include="Src\js\externals\angular\angular-strap\src\button\docs\button.demo.html" />
+    <Content Include="Src\js\externals\angular\angular-strap\src\button\docs\button.demo.js" />
+    <Content Include="Src\js\externals\angular\angular-strap\src\button\test\button.checkbox.spec.js" />
+    <Content Include="Src\js\externals\angular\angular-strap\src\button\test\button.radio.spec.js" />
+    <Content Include="Src\js\externals\angular\angular-strap\src\datepicker\datepicker.js" />
+    <Content Include="Src\js\externals\angular\angular-strap\src\datepicker\datepicker.tpl.html" />
+    <Content Include="Src\js\externals\angular\angular-strap\src\datepicker\docs\datepicker.demo.html" />
+    <Content Include="Src\js\externals\angular\angular-strap\src\datepicker\docs\datepicker.demo.js" />
+    <Content Include="Src\js\externals\angular\angular-strap\src\datepicker\test\datepicker.spec.js" />
+    <Content Include="Src\js\externals\angular\angular-strap\src\dropdown\docs\dropdown.demo.html" />
+    <Content Include="Src\js\externals\angular\angular-strap\src\dropdown\docs\dropdown.demo.js" />
+    <Content Include="Src\js\externals\angular\angular-strap\src\dropdown\dropdown.js" />
+    <Content Include="Src\js\externals\angular\angular-strap\src\dropdown\dropdown.tpl.html" />
+    <Content Include="Src\js\externals\angular\angular-strap\src\dropdown\test\dropdown.spec.js" />
+    <Content Include="Src\js\externals\angular\angular-strap\src\helpers\date-parser.js" />
+    <Content Include="Src\js\externals\angular\angular-strap\src\helpers\debounce.js" />
+    <Content Include="Src\js\externals\angular\angular-strap\src\helpers\dimensions.js" />
+    <Content Include="Src\js\externals\angular\angular-strap\src\helpers\parse-options.js" />
+    <Content Include="Src\js\externals\angular\angular-strap\src\helpers\test\dimensions.spec.js" />
+    <Content Include="Src\js\externals\angular\angular-strap\src\modal\docs\modal.demo.html" />
+    <Content Include="Src\js\externals\angular\angular-strap\src\modal\docs\modal.demo.js" />
+    <Content Include="Src\js\externals\angular\angular-strap\src\modal\docs\modal.tpl.content.demo.html" />
+    <Content Include="Src\js\externals\angular\angular-strap\src\modal\docs\modal.tpl.demo.html" />
+    <Content Include="Src\js\externals\angular\angular-strap\src\modal\modal.js" />
+    <Content Include="Src\js\externals\angular\angular-strap\src\modal\modal.tpl.html" />
+    <Content Include="Src\js\externals\angular\angular-strap\src\modal\test\modal.spec.js" />
+    <Content Include="Src\js\externals\angular\angular-strap\src\module.js" />
+    <Content Include="Src\js\externals\angular\angular-strap\src\navbar\docs\navbar.demo.html" />
+    <Content Include="Src\js\externals\angular\angular-strap\src\navbar\navbar.js" />
+    <Content Include="Src\js\externals\angular\angular-strap\src\navbar\test\navbar.spec.js" />
+    <Content Include="Src\js\externals\angular\angular-strap\src\popover\docs\popover.demo.html" />
+    <Content Include="Src\js\externals\angular\angular-strap\src\popover\docs\popover.demo.js" />
+    <Content Include="Src\js\externals\angular\angular-strap\src\popover\docs\popover.tpl.content.demo.html" />
+    <Content Include="Src\js\externals\angular\angular-strap\src\popover\docs\popover.tpl.demo.html" />
+    <Content Include="Src\js\externals\angular\angular-strap\src\popover\popover.js" />
+    <Content Include="Src\js\externals\angular\angular-strap\src\popover\popover.tpl.html" />
+    <Content Include="Src\js\externals\angular\angular-strap\src\popover\test\popover.spec.js" />
+    <Content Include="Src\js\externals\angular\angular-strap\src\scrollspy\docs\scrollspy.demo.html" />
+    <Content Include="Src\js\externals\angular\angular-strap\src\scrollspy\scrollspy.js" />
+    <Content Include="Src\js\externals\angular\angular-strap\src\scrollspy\test\scrollspy.spec.js" />
+    <Content Include="Src\js\externals\angular\angular-strap\src\select\docs\select.demo.html" />
+    <Content Include="Src\js\externals\angular\angular-strap\src\select\docs\select.demo.js" />
+    <Content Include="Src\js\externals\angular\angular-strap\src\select\select.js" />
+    <Content Include="Src\js\externals\angular\angular-strap\src\select\select.tpl.html" />
+    <Content Include="Src\js\externals\angular\angular-strap\src\select\test\select.spec.js" />
+    <Content Include="Src\js\externals\angular\angular-strap\src\tab\docs\pane.tpl.demo.html" />
+    <Content Include="Src\js\externals\angular\angular-strap\src\tab\docs\tab.demo.html" />
+    <Content Include="Src\js\externals\angular\angular-strap\src\tab\docs\tab.demo.js" />
+    <Content Include="Src\js\externals\angular\angular-strap\src\tab\tab.js" />
+    <Content Include="Src\js\externals\angular\angular-strap\src\tab\tab.tpl.html" />
+    <Content Include="Src\js\externals\angular\angular-strap\src\tab\test\tab.spec.js" />
+    <Content Include="Src\js\externals\angular\angular-strap\src\timepicker\docs\timepicker.demo.html" />
+    <Content Include="Src\js\externals\angular\angular-strap\src\timepicker\docs\timepicker.demo.js" />
+    <Content Include="Src\js\externals\angular\angular-strap\src\timepicker\test\timepicker.spec.js" />
+    <Content Include="Src\js\externals\angular\angular-strap\src\timepicker\timepicker.js" />
+    <Content Include="Src\js\externals\angular\angular-strap\src\timepicker\timepicker.tpl.html" />
+    <Content Include="Src\js\externals\angular\angular-strap\src\tooltip\docs\tooltip.demo.html" />
+    <Content Include="Src\js\externals\angular\angular-strap\src\tooltip\docs\tooltip.demo.js" />
+    <Content Include="Src\js\externals\angular\angular-strap\src\tooltip\docs\tooltip.tpl.demo.html" />
+    <Content Include="Src\js\externals\angular\angular-strap\src\tooltip\test\tooltip.spec.js" />
+    <Content Include="Src\js\externals\angular\angular-strap\src\tooltip\tooltip.js" />
+    <Content Include="Src\js\externals\angular\angular-strap\src\tooltip\tooltip.tpl.html" />
+    <Content Include="Src\js\externals\angular\angular-strap\src\typeahead\docs\typeahead.demo.html" />
+    <Content Include="Src\js\externals\angular\angular-strap\src\typeahead\docs\typeahead.demo.js" />
+    <Content Include="Src\js\externals\angular\angular-strap\src\typeahead\docs\typeahead.tpl.demo.html" />
+    <Content Include="Src\js\externals\angular\angular-strap\src\typeahead\test\typeahead.spec.js" />
+    <Content Include="Src\js\externals\angular\angular-strap\src\typeahead\typeahead.js" />
+    <Content Include="Src\js\externals\angular\angular-strap\src\typeahead\typeahead.tpl.html" />
+    <Content Include="Src\js\externals\angular\angular-strap\test\async.js" />
+    <Content Include="Src\js\externals\angular\angular-strap\test\effroi.js" />
+    <Content Include="Src\js\externals\angular\angular-strap\test\helpers.js" />
+    <Content Include="Src\js\externals\angular\angular-strap\test\karma.conf.js" />
+    <Content Include="Src\js\externals\angular\angular-min.js" />
+    <Content Include="Src\js\externals\angular\angular.js" />
+    <Content Include="Src\js\externals\Jquery.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Core\Library\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Src\css\bootstrap-theme.css.map" />
+    <Content Include="Src\css\bootstrap.css.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Src\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Src\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Src\fonts\glyphicons-halflings-regular.woff" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Src\js\externals\angular\angular-strap\.bowerrc" />
+    <Content Include="Src\js\externals\angular\angular-strap\.editorconfig" />
+    <Content Include="Src\js\externals\angular\angular-strap\.jshintrc" />
+    <Content Include="Src\js\externals\angular\angular-strap\.npmignore" />
+    <Content Include="Src\js\externals\angular\angular-strap\.travis.yml" />
+    <Content Include="Src\js\externals\angular\angular-strap\bower.json" />
+    <Content Include="Src\js\externals\angular\angular-strap\CONTRIBUTING.md" />
+    <Content Include="Src\js\externals\angular\angular-strap\dist\angular-strap.min.map" />
+    <Content Include="Src\js\externals\angular\angular-strap\dist\angular-strap.tpl.min.map" />
+    <Content Include="Src\js\externals\angular\angular-strap\dist\modules\affix.min.map" />
+    <Content Include="Src\js\externals\angular\angular-strap\dist\modules\alert.min.map" />
+    <Content Include="Src\js\externals\angular\angular-strap\dist\modules\aside.min.map" />
+    <Content Include="Src\js\externals\angular\angular-strap\dist\modules\aside.tpl.min.map" />
+    <Content Include="Src\js\externals\angular\angular-strap\dist\modules\button.min.map" />
+    <Content Include="Src\js\externals\angular\angular-strap\dist\modules\date-parser.min.map" />
+    <Content Include="Src\js\externals\angular\angular-strap\dist\modules\datepicker.min.map" />
+    <Content Include="Src\js\externals\angular\angular-strap\dist\modules\datepicker.tpl.min.map" />
+    <Content Include="Src\js\externals\angular\angular-strap\dist\modules\debounce.min.map" />
+    <Content Include="Src\js\externals\angular\angular-strap\dist\modules\dimensions.min.map" />
+    <Content Include="Src\js\externals\angular\angular-strap\dist\modules\dropdown.min.map" />
+    <Content Include="Src\js\externals\angular\angular-strap\dist\modules\dropdown.tpl.min.map" />
+    <Content Include="Src\js\externals\angular\angular-strap\dist\modules\modal.min.map" />
+    <Content Include="Src\js\externals\angular\angular-strap\dist\modules\modal.tpl.min.map" />
+    <Content Include="Src\js\externals\angular\angular-strap\dist\modules\module.min.map" />
+    <Content Include="Src\js\externals\angular\angular-strap\dist\modules\navbar.min.map" />
+    <Content Include="Src\js\externals\angular\angular-strap\dist\modules\parse-options.min.map" />
+    <Content Include="Src\js\externals\angular\angular-strap\dist\modules\popover.min.map" />
+    <Content Include="Src\js\externals\angular\angular-strap\dist\modules\popover.tpl.min.map" />
+    <Content Include="Src\js\externals\angular\angular-strap\dist\modules\scrollspy.min.map" />
+    <Content Include="Src\js\externals\angular\angular-strap\dist\modules\select.min.map" />
+    <Content Include="Src\js\externals\angular\angular-strap\dist\modules\select.tpl.min.map" />
+    <Content Include="Src\js\externals\angular\angular-strap\dist\modules\tab.min.map" />
+    <Content Include="Src\js\externals\angular\angular-strap\dist\modules\tab.tpl.min.map" />
+    <Content Include="Src\js\externals\angular\angular-strap\dist\modules\timepicker.min.map" />
+    <Content Include="Src\js\externals\angular\angular-strap\dist\modules\timepicker.tpl.min.map" />
+    <Content Include="Src\js\externals\angular\angular-strap\dist\modules\tooltip.min.map" />
+    <Content Include="Src\js\externals\angular\angular-strap\dist\modules\tooltip.tpl.min.map" />
+    <Content Include="Src\js\externals\angular\angular-strap\dist\modules\typeahead.min.map" />
+    <Content Include="Src\js\externals\angular\angular-strap\dist\modules\typeahead.tpl.min.map" />
+    <Content Include="Src\js\externals\angular\angular-strap\LICENSE.md" />
+    <Content Include="Src\js\externals\angular\angular-strap\package.json" />
+    <Content Include="Src\js\externals\angular\angular-strap\README.md" />
+    <Content Include="Src\js\externals\angular\angular-strap\src\affix\test\.jshintrc" />
+    <Content Include="Src\js\externals\angular\angular-strap\src\alert\test\.jshintrc" />
+    <Content Include="Src\js\externals\angular\angular-strap\src\aside\test\.jshintrc" />
+    <Content Include="Src\js\externals\angular\angular-strap\src\button\test\.jshintrc" />
+    <Content Include="Src\js\externals\angular\angular-strap\src\datepicker\test\.jshintrc" />
+    <Content Include="Src\js\externals\angular\angular-strap\src\dropdown\test\.jshintrc" />
+    <Content Include="Src\js\externals\angular\angular-strap\src\helpers\test\.jshintrc" />
+    <Content Include="Src\js\externals\angular\angular-strap\src\modal\test\.jshintrc" />
+    <Content Include="Src\js\externals\angular\angular-strap\src\navbar\test\.jshintrc" />
+    <Content Include="Src\js\externals\angular\angular-strap\src\popover\test\.jshintrc" />
+    <Content Include="Src\js\externals\angular\angular-strap\src\scrollspy\test\.jshintrc" />
+    <Content Include="Src\js\externals\angular\angular-strap\src\select\test\.jshintrc" />
+    <Content Include="Src\js\externals\angular\angular-strap\src\tab\test\.jshintrc" />
+    <Content Include="Src\js\externals\angular\angular-strap\src\timepicker\test\.jshintrc" />
+    <Content Include="Src\js\externals\angular\angular-strap\src\tooltip\test\.jshintrc" />
+    <Content Include="Src\js\externals\angular\angular-strap\src\typeahead\test\.jshintrc" />
+    <Content Include="Src\js\externals\angular\angular-strap\test\.jshintrc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\Login.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\_LayoutMain.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Substancia\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Substancia\Pesquisa.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\Main.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\Administracao.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Substancia\Substancia.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\OmegaLabsZero\OmegaLabsZero.csproj">
+      <Project>{d545e07d-dad7-46cd-9ca9-b3f2edaf6140}</Project>
+      <Name>OmegaLabsZero</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>0</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:50034/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

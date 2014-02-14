@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="edff22811f6d4a4d9153ffff4acf617b" Name="Diagram1" >
+        <EntityTypeShape EntityType="OmegaModel.sub_substancia" Width="1.5" PointX="4.875" PointY="2.25" />
+        <EntityTypeShape EntityType="OmegaModel.CID_CIDADE" Width="1.5" PointX="3.75" PointY="0.75" />
+        <EntityTypeShape EntityType="OmegaModel.CON_CONCURSO" Width="1.5" PointX="6" PointY="8.125" />
+        <EntityTypeShape EntityType="OmegaModel.EST_ESTADO" Width="1.5" PointX="3.75" PointY="10.375" />
+        <EntityTypeShape EntityType="OmegaModel.FAQ_PERGUNTAS" Width="1.5" PointX="3" PointY="12.75" />
+        <EntityTypeShape EntityType="OmegaModel.NOT_NOTICIA" Width="1.5" PointX="3" PointY="15.75" />
+        <EntityTypeShape EntityType="OmegaModel.STA_STATUS" Width="1.5" PointX="0.75" PointY="8.25" />
+        <EntityTypeShape EntityType="OmegaModel.SUB_SUBSTANCIA" Width="1.5" PointX="3" PointY="3.625" />
+        <EntityTypeShape EntityType="OmegaModel.USR_USUARIO" Width="1.5" PointX="3" PointY="6.5" />
+        <AssociationConnector Association="OmegaModel.FK_CON_CONC_REFERENCE_CID_CIDA" />
+        <AssociationConnector Association="OmegaModel.FK_CON_CONC_REFERENCE_EST_ESTA" />
+        <AssociationConnector Association="OmegaModel.FK_CON_CONC_REFERENCE_STA_STAT" />
+        <AssociationConnector Association="OmegaModel.FK_FAQ_PERG_REFERENCE_STA_STAT" />
+        <AssociationConnector Association="OmegaModel.FK_NOT_NOTI_REFERENCE_STA_STAT" />
+        <AssociationConnector Association="OmegaModel.FK_SUB_SUBS_REFERENCE_STA_STAT" />
+        <AssociationConnector Association="OmegaModel.FK_USR_USUA_REFERENCE_STA_STAT" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

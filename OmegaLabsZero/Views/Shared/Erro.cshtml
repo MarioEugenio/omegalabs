@@ -1,0 +1,23 @@
+﻿@model System.Web.Mvc.HandleErrorInfo
+
+@{
+    PageData["title"] = "OmegaLabs Toxicológico Brasil - Erro";
+}
+
+<div class="mainbar">
+    <div class="col-lg-4 col-centered">
+        <div class="widget">
+            <div class="widget-head textocentrado">
+                <div class="pull-left"><button class="btn btn-xs btn-danger"><span class="fontello icon-ruim"></span>Erro 404</button></div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="widget-content textocentrado">
+                <p>@ViewBag.Erro</p>
+                <p>Qualquer dúvida entre em contato no menu superior.</p>
+                <div class="widget-foot">
+                    <!-- Footer goes here -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

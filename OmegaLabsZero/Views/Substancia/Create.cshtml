@@ -1,0 +1,76 @@
+﻿@model OmegaLabsZero.Models.SUB_SUBSTANCIA
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>SUB_SUBSTANCIA</h4>
+        <hr />
+        @Html.ValidationSummary(true)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.SUB_ID, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.SUB_ID)
+                @Html.ValidationMessageFor(model => model.SUB_ID)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.STA_STA_ID, "STA_STA_ID", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("STA_STA_ID", String.Empty)
+                @Html.ValidationMessageFor(model => model.STA_STA_ID)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.SUB_NOME, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.SUB_NOME)
+                @Html.ValidationMessageFor(model => model.SUB_NOME)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.STA_ID, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.STA_ID)
+                @Html.ValidationMessageFor(model => model.STA_ID)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.DER_ID, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.DER_ID)
+                @Html.ValidationMessageFor(model => model.DER_ID)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.SUB_DETALHES, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.SUB_DETALHES)
+                @Html.ValidationMessageFor(model => model.SUB_DETALHES)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

@@ -1,0 +1,213 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="OmegaModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+  <EntityContainer Name="OmegaModelContainer" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="CID_CIDADE" EntityType="OmegaModel.CID_CIDADE" />
+    <EntitySet Name="CON_CONCURSO" EntityType="OmegaModel.CON_CONCURSO" />
+    <EntitySet Name="EST_ESTADO" EntityType="OmegaModel.EST_ESTADO" />
+    <EntitySet Name="FAQ_PERGUNTAS" EntityType="OmegaModel.FAQ_PERGUNTAS" />
+    <EntitySet Name="NOT_NOTICIA" EntityType="OmegaModel.NOT_NOTICIA" />
+    <EntitySet Name="STA_STATUS" EntityType="OmegaModel.STA_STATUS" />
+    <EntitySet Name="SUB_SUBSTANCIA" EntityType="OmegaModel.SUB_SUBSTANCIA" />
+    <EntitySet Name="USR_USUARIO" EntityType="OmegaModel.USR_USUARIO" />
+    <AssociationSet Name="FK_CON_CONC_REFERENCE_CID_CIDA" Association="OmegaModel.FK_CON_CONC_REFERENCE_CID_CIDA">
+      <End Role="CID_CIDADE" EntitySet="CID_CIDADE" />
+      <End Role="CON_CONCURSO" EntitySet="CON_CONCURSO" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CON_CONC_REFERENCE_EST_ESTA" Association="OmegaModel.FK_CON_CONC_REFERENCE_EST_ESTA">
+      <End Role="EST_ESTADO" EntitySet="EST_ESTADO" />
+      <End Role="CON_CONCURSO" EntitySet="CON_CONCURSO" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CON_CONC_REFERENCE_STA_STAT" Association="OmegaModel.FK_CON_CONC_REFERENCE_STA_STAT">
+      <End Role="STA_STATUS" EntitySet="STA_STATUS" />
+      <End Role="CON_CONCURSO" EntitySet="CON_CONCURSO" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FAQ_PERG_REFERENCE_STA_STAT" Association="OmegaModel.FK_FAQ_PERG_REFERENCE_STA_STAT">
+      <End Role="STA_STATUS" EntitySet="STA_STATUS" />
+      <End Role="FAQ_PERGUNTAS" EntitySet="FAQ_PERGUNTAS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_NOT_NOTI_REFERENCE_STA_STAT" Association="OmegaModel.FK_NOT_NOTI_REFERENCE_STA_STAT">
+      <End Role="STA_STATUS" EntitySet="STA_STATUS" />
+      <End Role="NOT_NOTICIA" EntitySet="NOT_NOTICIA" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SUB_SUBS_REFERENCE_STA_STAT" Association="OmegaModel.FK_SUB_SUBS_REFERENCE_STA_STAT">
+      <End Role="STA_STATUS" EntitySet="STA_STATUS" />
+      <End Role="SUB_SUBSTANCIA" EntitySet="SUB_SUBSTANCIA" />
+    </AssociationSet>
+    <AssociationSet Name="FK_USR_USUA_REFERENCE_STA_STAT" Association="OmegaModel.FK_USR_USUA_REFERENCE_STA_STAT">
+      <End Role="STA_STATUS" EntitySet="STA_STATUS" />
+      <End Role="USR_USUARIO" EntitySet="USR_USUARIO" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="CID_CIDADE">
+    <Key>
+      <PropertyRef Name="CID_ID" />
+    </Key>
+    <Property Name="CID_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CID_NOME" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="CON_CONCURSO" Relationship="OmegaModel.FK_CON_CONC_REFERENCE_CID_CIDA" FromRole="CID_CIDADE" ToRole="CON_CONCURSO" />
+  </EntityType>
+  <EntityType Name="CON_CONCURSO">
+    <Key>
+      <PropertyRef Name="CON_ID" />
+    </Key>
+    <Property Name="CON_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CON_NOME" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="STA_ID" Type="Int32" Nullable="false" />
+    <Property Name="CID_ID" Type="Int32" Nullable="false" />
+    <Property Name="EST_ID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="CID_CIDADE" Relationship="OmegaModel.FK_CON_CONC_REFERENCE_CID_CIDA" FromRole="CON_CONCURSO" ToRole="CID_CIDADE" />
+    <NavigationProperty Name="EST_ESTADO" Relationship="OmegaModel.FK_CON_CONC_REFERENCE_EST_ESTA" FromRole="CON_CONCURSO" ToRole="EST_ESTADO" />
+    <NavigationProperty Name="STA_STATUS" Relationship="OmegaModel.FK_CON_CONC_REFERENCE_STA_STAT" FromRole="CON_CONCURSO" ToRole="STA_STATUS" />
+  </EntityType>
+  <EntityType Name="EST_ESTADO">
+    <Key>
+      <PropertyRef Name="EST_ID" />
+    </Key>
+    <Property Name="EST_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EST_NOME" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="CON_CONCURSO" Relationship="OmegaModel.FK_CON_CONC_REFERENCE_EST_ESTA" FromRole="EST_ESTADO" ToRole="CON_CONCURSO" />
+  </EntityType>
+  <EntityType Name="FAQ_PERGUNTAS">
+    <Key>
+      <PropertyRef Name="FAQ_ID" />
+    </Key>
+    <Property Name="FAQ_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FAQ_TITULO" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="FAQ_PERGUNTA" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="FAQ_RESPOSTA" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="STA_ID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="STA_STATUS" Relationship="OmegaModel.FK_FAQ_PERG_REFERENCE_STA_STAT" FromRole="FAQ_PERGUNTAS" ToRole="STA_STATUS" />
+  </EntityType>
+  <EntityType Name="NOT_NOTICIA">
+    <Key>
+      <PropertyRef Name="NOT_ID" />
+    </Key>
+    <Property Name="NOT_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NOT_TITULO" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="NOT_PREVIA" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="NOT_TEXTO" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="NOT_INCLUSAO" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="NOT_ALTERACAO" Type="DateTime" Precision="3" />
+    <Property Name="NOT_PUBICACAO" Type="DateTime" Precision="3" />
+    <Property Name="STA_ID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="STA_STATUS" Relationship="OmegaModel.FK_NOT_NOTI_REFERENCE_STA_STAT" FromRole="NOT_NOTICIA" ToRole="STA_STATUS" />
+  </EntityType>
+  <EntityType Name="STA_STATUS">
+    <Key>
+      <PropertyRef Name="STA_ID" />
+    </Key>
+    <Property Name="STA_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="STA_NOME" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="CON_CONCURSO" Relationship="OmegaModel.FK_CON_CONC_REFERENCE_STA_STAT" FromRole="STA_STATUS" ToRole="CON_CONCURSO" />
+    <NavigationProperty Name="FAQ_PERGUNTAS" Relationship="OmegaModel.FK_FAQ_PERG_REFERENCE_STA_STAT" FromRole="STA_STATUS" ToRole="FAQ_PERGUNTAS" />
+    <NavigationProperty Name="NOT_NOTICIA" Relationship="OmegaModel.FK_NOT_NOTI_REFERENCE_STA_STAT" FromRole="STA_STATUS" ToRole="NOT_NOTICIA" />
+    <NavigationProperty Name="SUB_SUBSTANCIA" Relationship="OmegaModel.FK_SUB_SUBS_REFERENCE_STA_STAT" FromRole="STA_STATUS" ToRole="SUB_SUBSTANCIA" />
+    <NavigationProperty Name="USR_USUARIO" Relationship="OmegaModel.FK_USR_USUA_REFERENCE_STA_STAT" FromRole="STA_STATUS" ToRole="USR_USUARIO" />
+  </EntityType>
+  <EntityType Name="SUB_SUBSTANCIA">
+    <Key>
+      <PropertyRef Name="SUB_ID" />
+    </Key>
+    <Property Name="SUB_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="STA_ID" Type="Int32" Nullable="false" />
+    <Property Name="SUB_NOME" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="DER_ID" Type="Int32" />
+    <Property Name="SUB_DETALHES" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="STA_STATUS" Relationship="OmegaModel.FK_SUB_SUBS_REFERENCE_STA_STAT" FromRole="SUB_SUBSTANCIA" ToRole="STA_STATUS" />
+  </EntityType>
+  <EntityType Name="USR_USUARIO">
+    <Key>
+      <PropertyRef Name="USR_ID" />
+    </Key>
+    <Property Name="USR_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="USR_NOME" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="USR_EMAIL" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="USR_SENHA" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="STA_ID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="STA_STATUS" Relationship="OmegaModel.FK_USR_USUA_REFERENCE_STA_STAT" FromRole="USR_USUARIO" ToRole="STA_STATUS" />
+  </EntityType>
+  <Association Name="FK_CON_CONC_REFERENCE_CID_CIDA">
+    <End Type="OmegaModel.CID_CIDADE" Role="CID_CIDADE" Multiplicity="1" />
+    <End Type="OmegaModel.CON_CONCURSO" Role="CON_CONCURSO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CID_CIDADE">
+        <PropertyRef Name="CID_ID" />
+      </Principal>
+      <Dependent Role="CON_CONCURSO">
+        <PropertyRef Name="CID_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CON_CONC_REFERENCE_EST_ESTA">
+    <End Type="OmegaModel.EST_ESTADO" Role="EST_ESTADO" Multiplicity="1" />
+    <End Type="OmegaModel.CON_CONCURSO" Role="CON_CONCURSO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EST_ESTADO">
+        <PropertyRef Name="EST_ID" />
+      </Principal>
+      <Dependent Role="CON_CONCURSO">
+        <PropertyRef Name="EST_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CON_CONC_REFERENCE_STA_STAT">
+    <End Type="OmegaModel.STA_STATUS" Role="STA_STATUS" Multiplicity="1" />
+    <End Type="OmegaModel.CON_CONCURSO" Role="CON_CONCURSO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="STA_STATUS">
+        <PropertyRef Name="STA_ID" />
+      </Principal>
+      <Dependent Role="CON_CONCURSO">
+        <PropertyRef Name="STA_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FAQ_PERG_REFERENCE_STA_STAT">
+    <End Type="OmegaModel.STA_STATUS" Role="STA_STATUS" Multiplicity="1" />
+    <End Type="OmegaModel.FAQ_PERGUNTAS" Role="FAQ_PERGUNTAS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="STA_STATUS">
+        <PropertyRef Name="STA_ID" />
+      </Principal>
+      <Dependent Role="FAQ_PERGUNTAS">
+        <PropertyRef Name="STA_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_NOT_NOTI_REFERENCE_STA_STAT">
+    <End Type="OmegaModel.STA_STATUS" Role="STA_STATUS" Multiplicity="1" />
+    <End Type="OmegaModel.NOT_NOTICIA" Role="NOT_NOTICIA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="STA_STATUS">
+        <PropertyRef Name="STA_ID" />
+      </Principal>
+      <Dependent Role="NOT_NOTICIA">
+        <PropertyRef Name="STA_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SUB_SUBS_REFERENCE_STA_STAT">
+    <End Type="OmegaModel.STA_STATUS" Role="STA_STATUS" Multiplicity="1" />
+    <End Type="OmegaModel.SUB_SUBSTANCIA" Role="SUB_SUBSTANCIA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="STA_STATUS">
+        <PropertyRef Name="STA_ID" />
+      </Principal>
+      <Dependent Role="SUB_SUBSTANCIA">
+        <PropertyRef Name="STA_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_USR_USUA_REFERENCE_STA_STAT">
+    <End Type="OmegaModel.STA_STATUS" Role="STA_STATUS" Multiplicity="1" />
+    <End Type="OmegaModel.USR_USUARIO" Role="USR_USUARIO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="STA_STATUS">
+        <PropertyRef Name="STA_ID" />
+      </Principal>
+      <Dependent Role="USR_USUARIO">
+        <PropertyRef Name="STA_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

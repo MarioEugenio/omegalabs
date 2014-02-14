@@ -1,0 +1,64 @@
+﻿@model OmegaLabsZero.Models.SUB_SUBSTANCIA
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>SUB_SUBSTANCIA</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.SUB_NOME)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SUB_NOME)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.STA_ID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.STA_ID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DER_ID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DER_ID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SUB_DETALHES)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SUB_DETALHES)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.STA_STATUS.STA_STATUS1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.STA_STATUS.STA_STATUS1)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

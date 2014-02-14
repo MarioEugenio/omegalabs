@@ -1,0 +1,30 @@
+﻿@{
+    Layout = null;
+}
+<h2>Cadastro de Substancia</h2>
+
+<p class="bg-info"><li class="glyphicon glyphicon-info-sign"></li> Os campos com (*) sao de preenchimento obrigatorio</p>
+
+<form role="form">
+  <div class="form-group">
+    <label for="exampleInputEmail1">Nome</label>
+    <input type="text" class="form-control" id="exampleInputEmail1" required autofocus placeholder="digite o nome da substancia">
+  </div>
+
+  <div class="form-group">
+    <label for="exampleInputPassword1">Status</label>
+    <select class="form-control" required>
+        <option>Selecione...</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="exampleInputPassword1">Detalhes</label>
+    <textarea class="form-control" rows="3" placeholder="digite o detalhamento da substancia" required></textarea>
+  </div>
+  
+  <div class="pull-right">
+    <button type="submit" class="btn btn-primary"><li class="glyphicon glyphicon-floppy-save"></li> Salvar</button>
+    <a href="#/substancia" class="btn btn-default"><li class="glyphicon glyphicon-chevron-left"></li> Voltar</a>
+  </div>
+</form>

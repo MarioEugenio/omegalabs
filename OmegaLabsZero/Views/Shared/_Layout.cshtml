@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html>
+<html ng-app id="ng-app">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title ng-bind="title">@(PageData["title"] ?? "OmegaLabs Toxicológico Brasil")</title>
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <meta name="description" content="@PageData["description"]">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+
+<body>
+    <!--[if lt IE 9]>
+        <p class="browsehappy">Você está usando um navegador <strong>ultrapassado</strong>. Por favor <a href="http://browsehappy.com/">atualize seu navegador</a> para melhorar a experiência.</p>
+    <![endif]-->
+    <!-- Início do cabeçalho -->
+    <header class="navbar navbar-default navbar-fixed-top" role="banner">
+        @* The 'layout' property is set inside the app.run(..) method on '$stateChangeSuccess' *@
+        <div class="container">
+            <nav class="collapse navbar-collapse spa-navbar-collapse" role="navigation">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="./pesquisa"> <span class="fontello icon-pesquisa"></span>Substâncias</a>
+                    </li>
+                    <li>
+                        <a href="./about"> <span class="fontello icon-newspaper"></span>Concursos em Andamento</a>
+                    </li>
+                    <li>
+                        <a href="./contacts"><span class="fontello icon-help-1"></span> Perguntas Frequentes</a>
+                    </li>
+                    <li>
+                        <a href="./contacts"><span class="fontello icon-chat-empty"></span> Contato</a>
+                    </li>
+                </ul>
+
+            </nav>
+        </div>
+    </header>
+    <!-- Fim do cabeçalho -->
+    <!-- Corpo -->
+    <div id="ui-view" class="container-full">
+        @RenderBody()
+    </div>
+    <!-- Fim - Corpo -->
+    <!-- Início do Rodapé -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <!-- Copyright info -->
+                    <p class="copy">Copyright &copy; 2014 | OmegaLabs Toxicológico Brasil - Visite: <a href="http://www.omegalabs.com.br/" target="_blank">http://www.omegalabs.com.br/</a> </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    @Scripts.Render("~/bundles/angular")<!-- Fim do Rodapé -->
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

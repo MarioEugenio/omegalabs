@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="OmegaModelStoreContainer" CdmEntityContainer="OmegaModelContainer">
+    <EntitySetMapping Name="CID_CIDADE">
+      <EntityTypeMapping TypeName="IsTypeOf(OmegaModel.CID_CIDADE)">
+        <MappingFragment StoreEntitySet="CID_CIDADE">
+          <ScalarProperty Name="CID_ID" ColumnName="CID_ID" />
+          <ScalarProperty Name="CID_NOME" ColumnName="CID_NOME" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CON_CONCURSO">
+      <EntityTypeMapping TypeName="IsTypeOf(OmegaModel.CON_CONCURSO)">
+        <MappingFragment StoreEntitySet="CON_CONCURSO">
+          <ScalarProperty Name="CON_ID" ColumnName="CON_ID" />
+          <ScalarProperty Name="CON_NOME" ColumnName="CON_NOME" />
+          <ScalarProperty Name="STA_ID" ColumnName="STA_ID" />
+          <ScalarProperty Name="CID_ID" ColumnName="CID_ID" />
+          <ScalarProperty Name="EST_ID" ColumnName="EST_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EST_ESTADO">
+      <EntityTypeMapping TypeName="IsTypeOf(OmegaModel.EST_ESTADO)">
+        <MappingFragment StoreEntitySet="EST_ESTADO">
+          <ScalarProperty Name="EST_ID" ColumnName="EST_ID" />
+          <ScalarProperty Name="EST_NOME" ColumnName="EST_NOME" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FAQ_PERGUNTAS">
+      <EntityTypeMapping TypeName="IsTypeOf(OmegaModel.FAQ_PERGUNTAS)">
+        <MappingFragment StoreEntitySet="FAQ_PERGUNTAS">
+          <ScalarProperty Name="FAQ_ID" ColumnName="FAQ_ID" />
+          <ScalarProperty Name="FAQ_TITULO" ColumnName="FAQ_TITULO" />
+          <ScalarProperty Name="FAQ_PERGUNTA" ColumnName="FAQ_PERGUNTA" />
+          <ScalarProperty Name="FAQ_RESPOSTA" ColumnName="FAQ_RESPOSTA" />
+          <ScalarProperty Name="STA_ID" ColumnName="STA_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NOT_NOTICIA">
+      <EntityTypeMapping TypeName="IsTypeOf(OmegaModel.NOT_NOTICIA)">
+        <MappingFragment StoreEntitySet="NOT_NOTICIA">
+          <ScalarProperty Name="NOT_ID" ColumnName="NOT_ID" />
+          <ScalarProperty Name="NOT_TITULO" ColumnName="NOT_TITULO" />
+          <ScalarProperty Name="NOT_PREVIA" ColumnName="NOT_PREVIA" />
+          <ScalarProperty Name="NOT_TEXTO" ColumnName="NOT_TEXTO" />
+          <ScalarProperty Name="NOT_INCLUSAO" ColumnName="NOT_INCLUSAO" />
+          <ScalarProperty Name="NOT_ALTERACAO" ColumnName="NOT_ALTERACAO" />
+          <ScalarProperty Name="NOT_PUBICACAO" ColumnName="NOT_PUBICACAO" />
+          <ScalarProperty Name="STA_ID" ColumnName="STA_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="STA_STATUS">
+      <EntityTypeMapping TypeName="IsTypeOf(OmegaModel.STA_STATUS)">
+        <MappingFragment StoreEntitySet="STA_STATUS">
+          <ScalarProperty Name="STA_ID" ColumnName="STA_ID" />
+          <ScalarProperty Name="STA_NOME" ColumnName="STA_NOME" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SUB_SUBSTANCIA">
+      <EntityTypeMapping TypeName="IsTypeOf(OmegaModel.SUB_SUBSTANCIA)">
+        <MappingFragment StoreEntitySet="SUB_SUBSTANCIA">
+          <ScalarProperty Name="SUB_ID" ColumnName="SUB_ID" />
+          <ScalarProperty Name="STA_ID" ColumnName="STA_ID" />
+          <ScalarProperty Name="SUB_NOME" ColumnName="SUB_NOME" />
+          <ScalarProperty Name="DER_ID" ColumnName="DER_ID" />
+          <ScalarProperty Name="SUB_DETALHES" ColumnName="SUB_DETALHES" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="USR_USUARIO">
+      <EntityTypeMapping TypeName="IsTypeOf(OmegaModel.USR_USUARIO)">
+        <MappingFragment StoreEntitySet="USR_USUARIO">
+          <ScalarProperty Name="USR_ID" ColumnName="USR_ID" />
+          <ScalarProperty Name="USR_NOME" ColumnName="USR_NOME" />
+          <ScalarProperty Name="USR_EMAIL" ColumnName="USR_EMAIL" />
+          <ScalarProperty Name="USR_SENHA" ColumnName="USR_SENHA" />
+          <ScalarProperty Name="STA_ID" ColumnName="STA_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

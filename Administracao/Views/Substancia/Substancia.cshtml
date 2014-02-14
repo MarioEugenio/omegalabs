@@ -5,22 +5,23 @@
 
 <p class="bg-info"><li class="glyphicon glyphicon-info-sign"></li> Os campos com (*) sao de preenchimento obrigatorio</p>
 
-<form role="form">
+<form role="form" ng-controller="SubstanciaController" ng-init="init()" ng-submit="salvar()">
+    <div id="alerts-container"></div>
   <div class="form-group">
     <label for="exampleInputEmail1">Nome</label>
-    <input type="text" class="form-control" id="exampleInputEmail1" required autofocus placeholder="digite o nome da substancia">
+    <input type="text" class="form-control" ng-model="form.SUB_NOME" required autofocus placeholder="digite o nome da substancia">
   </div>
 
   <div class="form-group">
     <label for="exampleInputPassword1">Status</label>
-    <select class="form-control" required>
+    <select class="form-control" ng-model="form.STA_ID" ng-options="c.STA_ID as c.STA_NOME for c in listStatus" required>
         <option>Selecione...</option>
     </select>
   </div>
 
   <div class="form-group">
     <label for="exampleInputPassword1">Detalhes</label>
-    <textarea class="form-control" rows="3" placeholder="digite o detalhamento da substancia" required></textarea>
+    <textarea class="form-control" rows="3" ng-model="form.SUB_DETALHES" placeholder="digite o detalhamento da substancia" required></textarea>
   </div>
   
   <div class="pull-right">

@@ -25,10 +25,7 @@
 <body>
     @RenderBody()
 
-    @foreach (string s in ViewBag.listRouters)
-    {
-         @Scripts.Render("~/Src/app/" + s + "/initRouter.js")
-    }
+    @Scripts.Render("~/Scripts/js")
 
     @Scripts.Render("~/Src/app/initial/initialRouter.js")
 

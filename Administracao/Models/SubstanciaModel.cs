@@ -31,11 +31,10 @@ namespace Administracao.Models
                                DER_NOME = derivado,
                                SUB_DETALHES = SUB.SUB_DETALHES
                            }).OrderBy(x => x.SUB_NOME);
-            
+
             return retorno;
         }
 
-        // Get
         public PesquisaViewModel Get(int id)
         {
             db.Configuration.ProxyCreationEnabled = false;
@@ -58,35 +57,36 @@ namespace Administracao.Models
                            }).FirstOrDefault();
             return retorno;
         }
+
+        public IOrderedQueryable<StatusViewModel> GetAllStatus()
+        {
+            db.Configuration.ProxyCreationEnabled = false;
+
+            var retorno = (from STA in db.STA_STATUS
+                           let derivado = (
+                           from DER in db.STA_STATUS
+                           select DER.STA_NOME
+                            ).FirstOrDefault()
+                           select new StatusViewModel
+                           {
+                               STA_ID = STA.STA_ID,
+                               STA_NOME = STA.STA_NOME
+                           }).OrderBy(x => x.STA_NOME);
+
+            return retorno;
+        }
+
+        public void Save(SUB_SUBSTANCIA sub_substancia)
+        {
+                db.SUB_SUBSTANCIA.Add(sub_substancia);
+                db.SaveChanges();
+        }
+
+        public void DeleteConfirmed(int id)
+        {
+            SUB_SUBSTANCIA sub_substancia = db.SUB_SUBSTANCIA.Find(id);
+            db.SUB_SUBSTANCIA.Remove(sub_substancia);
+            db.SaveChanges();
+        }
     }
-
-        //public void Create(SUB_SUBSTANCIA sub_substancia)
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-        //        db.SUB_SUBSTANCIA.Add(sub_substancia);
-        //        db.SaveChanges();
-        
-        //    }
-        //}
-
-        //// GET: /Substancia/Edit/5
-        //public void Edit(SUB_SUBSTANCIA sub_substancia)
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-        //        db.Entry(sub_substancia).State = EntityState.Modified;
-        //        db.SaveChanges();
-        //        return RedirectToAction("Index");
-        //    }
-
-
-        //}
-
-        //public void DeleteConfirmed(int id)
-        //{
-        //    SUB_SUBSTANCIA sub_substancia = db.SUB_SUBSTANCIA.Find(id);
-        //    db.SUB_SUBSTANCIA.Remove(sub_substancia);
-        //    db.SaveChanges();
-        //}
 }

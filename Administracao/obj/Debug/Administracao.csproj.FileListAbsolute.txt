@@ -1,7 +1,6 @@
 C:\Users\MárioEugênio\Desktop\OmegaLabsZero\Administracao\bin\Administracao.dll
 C:\Users\MárioEugênio\Desktop\OmegaLabsZero\Administracao\bin\Administracao.pdb
 C:\Users\MárioEugênio\Desktop\OmegaLabsZero\Administracao\bin\Antlr3.Runtime.dll
-C:\Users\MárioEugênio\Desktop\OmegaLabsZero\Administracao\bin\EntityFramework.dll
 C:\Users\MárioEugênio\Desktop\OmegaLabsZero\Administracao\bin\Microsoft.Web.Infrastructure.dll
 C:\Users\MárioEugênio\Desktop\OmegaLabsZero\Administracao\bin\Newtonsoft.Json.dll
 C:\Users\MárioEugênio\Desktop\OmegaLabsZero\Administracao\bin\OmegaLabsZero.dll

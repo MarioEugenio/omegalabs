@@ -29,5 +29,15 @@ namespace Administracao.Core.Abstract.Controllers
             return Json(result, JsonRequestBehavior.AllowGet);
         }
 
+        public JsonResult retornaMensagem(bool sucess, string message, object data = null)
+        {
+            var retorno = new { 
+                message = message,
+                success = sucess,
+                data = data
+            };
+
+            return this.retornarJson(retorno);
+        }
     }
 }

@@ -3,13 +3,17 @@
 }
 <h2>Pesquisa Substancia</h2>
 
-<div class="container-fluid" ng-controller="PesquisaController" ng-init="init">
+<div class="container-fluid" ng-controller="PesquisaController" ng-init="init()">
+    <div id="alerts-container"></div>
     <div class="row">
         <div class="bs-callout bs-callout-info">
             
           <div class="form-group">
             <label for="exampleInputEmail1">Filtro de Pesquisa</label>
-            <input type="text" ng-model="search" class="form-control" placeholder="digite o nome da substancia">
+              <div class="input-group input-group-lg">
+                <span class="input-group-addon"><li class="glyphicon glyphicon-search"></li></span>
+                <input type="text" ng-model="search" class="form-control" placeholder="digite um parametro para pesquisa">
+              </div>
           </div>
 
         </div>
@@ -18,7 +22,7 @@
    <div class="row">
   <div class="panel panel-default">
   <!-- Default panel contents -->
-  <div class="panel-heading"><li class="glyphicon glyphicon-warning-sign"></li> <small>Selecione o registro desejado logo abaixo.</small> <a href="#/substancia/cadastro" class="btn btn-primary btn-xs pull-right"><li class="glyphicon glyphicon-plus-sign"></li> Cadastrar Substancia</a></div>
+  <div class="panel-heading"><span class="label label-info">Registros: {{listSubstancia.length}}</span> <a href="#/substancia/cadastro" class="btn btn-primary btn-xs pull-right"><li class="glyphicon glyphicon-plus-sign"></li> Cadastrar Substancia</a></div>
 
     <div class="table-responsive">
       <table class="table table-hover table-striped">
@@ -32,16 +36,16 @@
             </thead>
             <tbody>
               <tr>
-                  <td class="text-center" colspan="4" ng-show="!listSubstancia.lenght"> <strong>Nao houve retorno de registros</strong></td>
+                  <td class="text-center" colspan="4" ng-show="!listSubstancia.length"> <strong>Nao houve retorno de registros</strong></td>
               </tr>
-              <tr ng-show="listSubstancia.lenght" ng-repeat="item in listSubstancia | filter:search">
+              <tr ng-show="listSubstancia.length" ng-repeat="item in listSubstancia | filter:search">
                 <td>
-                    <a href="#/substancia" title="Remover substancia" class="btn btn-default btn-xs"><li class="glyphicon glyphicon-trash"></li></a>
-                    <a href="#/substancia//alterar" title="Alterar substancia" class="btn btn-default btn-xs"><li class="glyphicon glyphicon-edit"></li></a>
+                    <a href="#/substancia" ng-click="remover(item, $index)" title="Remover substancia" class="btn btn-default btn-xs"><li class="glyphicon glyphicon-trash"></li></a>
+                    <a href="#/substancia/{{item.SUB_ID}}/alterar" title="Alterar substancia" class="btn btn-default btn-xs"><li class="glyphicon glyphicon-edit"></li></a>
                 </td>
-                <td>Table cell</td>
-                <td>Table cell</td>
-                <td>Table cell</td>
+                <td>{{item.SUB_NOME}}</td>
+                <td>{{item.SUB_DETALHES}}</td>
+                <td>{{item.STA_NOME}}</td>
               </tr>
               
             </tbody>

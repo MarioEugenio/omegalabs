@@ -78,8 +78,14 @@ namespace Administracao.Models
 
         public void Save(SUB_SUBSTANCIA sub_substancia)
         {
+            if (sub_substancia.SUB_ID > 0)
+            {
+                db.Entry(sub_substancia).State = System.Data.Entity.EntityState.Modified;
+            } else {
                 db.SUB_SUBSTANCIA.Add(sub_substancia);
-                db.SaveChanges();
+            }
+                        
+            db.SaveChanges();
         }
 
         public void DeleteConfirmed(int id)

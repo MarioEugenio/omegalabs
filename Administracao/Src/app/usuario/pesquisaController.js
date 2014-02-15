@@ -1,5 +1,5 @@
-﻿app.controller('PesquisaController', function ($scope, $http, $alert) {
-    $scope.listSubstancia = [];
+﻿app.controller('PesquisaUsuarioController', function ($scope, $http, $alert) {
+    $scope.listUsuario = [];
 
     $scope.init = function () {
         $scope.getAll();
@@ -7,9 +7,9 @@
 
     $scope.getAll = function () {
 
-        $http.post(baseUrl + '/Substancia/GetAll')
+        $http.post(baseUrl + '/Usuario/GetAll')
             .success(function (data) {
-                $scope.listSubstancia = data;
+                $scope.listUsuario = data;
         });
     }
 
@@ -18,7 +18,7 @@
 
         if (conf) {
             $http.post(
-                baseUrl + '/Substancia/Remover/' + item.SUB_ID
+                baseUrl + '/Usuario/Remover/' + item.USR_ID
                 )
                 .success(function (response) {
                 if (response.success) {
@@ -31,7 +31,7 @@
                         show: true
                     });
 
-                    $scope.listSubstancia.splice(index, 1);
+                    $scope.listUsuario.splice(index, 1);
             } else {
                 $alert({
                     title: response.message,

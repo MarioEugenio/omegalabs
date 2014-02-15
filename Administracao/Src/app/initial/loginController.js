@@ -13,7 +13,8 @@
                     $alert({
                         title: response.message,
                         content: response.message,
-                        placement: 'top',
+                        placement: 'top-right',
+                        container: 'body',
                         type: 'warning',
                         show: true
                     });

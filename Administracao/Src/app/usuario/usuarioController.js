@@ -1,4 +1,4 @@
-﻿app.controller('SubstanciaController', function ($scope, $http, $location, $routeParams, $alert) {
+﻿app.controller('UsuarioController', function ($scope, $http, $location, $routeParams, $alert) {
     $scope.form = {};
     $scope.listStatus = [];
 
@@ -20,15 +20,29 @@
     }
 
     $scope.get = function (id) {
-        $http.post(baseUrl + '/Substancia/Get/' + id)
+        $http.post(baseUrl + '/Usuario/Get/' + id)
             .success(function (response) {
                 $scope.form = response;
         });
     }
 
     $scope.salvar = function () {
+
+        if ($scope.form.USR_SENHA != $scope.form.R_USR_SENHA) {
+            $alert({
+                title: 'Confirme novamente a senha',
+                content: '',
+                placement: 'top-right',
+                container: 'body',
+                type: 'warning',
+                show: true
+            });
+
+            return;
+        }
+
         $http.post(
-            baseUrl + '/Substancia/Save',
+            baseUrl + '/Usuario/Save',
             $scope.form
             )
             .success(function (response) {
@@ -42,7 +56,7 @@
                         show: true
                     });
 
-                    $location.path('/substancia');
+                    $location.path('/usuario');
                 } else {
                     $alert({
                         title: response.message,

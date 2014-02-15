@@ -41,6 +41,7 @@ namespace Administracao
             var scripts = new ScriptBundle("~/Scripts/js");
             bundles.Add(scripts.IncludeDirectory("~/Src/app/initial", "*.js"));
             bundles.Add(scripts.IncludeDirectory("~/Src/app/substancia", "*.js"));
+            bundles.Add(scripts.IncludeDirectory("~/Src/app/usuario", "*.js"));
         }
 
     }

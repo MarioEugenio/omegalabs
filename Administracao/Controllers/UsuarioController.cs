@@ -22,6 +22,16 @@ namespace Administracao.Controllers
             return View();
         }
 
+        public ActionResult Pesquisa()
+        {
+            return View();
+        }
+
+        public ActionResult Usuario()
+        {
+            return View();
+        }
+
         public JsonResult GetAll()
         {
             return this.retornarJson(_model.GetAll());
@@ -45,7 +55,7 @@ namespace Administracao.Controllers
                     return this.retornaMensagem(true, "Autenticado com sucesso");
                 } 
 
-                return this.retornaMensagem(false, "Acesso negado");
+                return this.retornaMensagem(false, "Usuario ou senha invalida");
             }
             catch (Exception ex)
             {
@@ -53,13 +63,12 @@ namespace Administracao.Controllers
                 return this.retornaMensagem(false, ex.Message);
             }
         }
-
-        [HttpPost]
-        public JsonResult LogOff()
+        
+        public ActionResult LogOff()
         {
             FormsAuthentication.SignOut();
 
-            return this.retornaMensagem(true, "processo realizado com sucesso");
+            return Redirect("~/");
         }
 
 

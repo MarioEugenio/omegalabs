@@ -24,6 +24,8 @@ namespace Administracao.Controllers
 
         public ActionResult Main()
         {
+            ViewBag.Username = User.Identity.Name;
+
             return View();
         }
 

@@ -25,7 +25,9 @@ namespace Administracao.Models
                            {
                                USR_ID = USR.USR_ID,
                                USR_NOME = USR.USR_NOME,
+                               USR_EMAIL = USR.USR_EMAIL,
                                USR_SENHA = USR.USR_SENHA,
+                               STA_ID = USR.STA_STATUS.STA_ID,
                                STA_NOME = USR.STA_STATUS.STA_NOME
                            }).OrderBy(x => x.USR_NOME);
 
@@ -45,7 +47,9 @@ namespace Administracao.Models
                            {
                                USR_ID = USR.USR_ID,
                                USR_NOME = USR.USR_NOME,
+                               USR_EMAIL = USR.USR_EMAIL,
                                USR_SENHA = USR.USR_SENHA,
+                               STA_ID = USR.STA_STATUS.STA_ID,
                                STA_NOME = USR.STA_STATUS.STA_NOME
                            }).FirstOrDefault();
 
@@ -69,7 +73,9 @@ namespace Administracao.Models
                            {
                                USR_ID = USR.USR_ID,
                                USR_NOME = USR.USR_NOME,
+                               USR_EMAIL = USR.USR_EMAIL,
                                USR_SENHA = USR.USR_SENHA,
+                               STA_ID = USR.STA_STATUS.STA_ID,
                                STA_NOME = USR.STA_STATUS.STA_NOME
                            }).FirstOrDefault();
 
@@ -77,18 +83,21 @@ namespace Administracao.Models
                 return false;
             }
 
+            entity.USR_NOME = retorno.USR_NOME;
+
             return true;
         }
 
         public void Save(USR_USUARIO entity)
         {
+            entity.USR_SENHA = this.convertMD5(entity.USR_SENHA);
+
             if (entity.USR_ID > 0)
             {
                 db.Entry(entity).State = System.Data.Entity.EntityState.Modified;
             }
             else
             {
-                entity.USR_SENHA = this.convertMD5(entity.USR_SENHA);
                 db.USR_USUARIO.Add(entity);
             }
 

@@ -1,9 +1,9 @@
 ﻿@{
     Layout = null;
 }
-<h2>Pesquisa Substancia</h2>
+<h2>Pesquisa Usuario</h2>
 
-<div class="container-fluid" ng-controller="PesquisaController" ng-init="init()">
+<div class="container-fluid" ng-controller="PesquisaUsuarioController" ng-init="init()">
     <div id="alerts-container"></div>
     <div class="row">
         <div class="bs-callout bs-callout-info">
@@ -22,7 +22,7 @@
    <div class="row">
   <div class="panel panel-default">
   <!-- Default panel contents -->
-  <div class="panel-heading"><span class="label label-info">Registros: {{listSubstancia.length}}</span> <a href="#/substancia/cadastro" class="btn btn-primary btn-xs pull-right"><li class="glyphicon glyphicon-plus-sign"></li> Cadastrar Substancia</a></div>
+  <div class="panel-heading"><span class="label label-info">Registros: {{listUsuario.length}}</span> <a href="#/usuario/cadastro" class="btn btn-primary btn-xs pull-right"><li class="glyphicon glyphicon-plus-sign"></li> Cadastrar Usuario</a></div>
 
     <div class="table-responsive">
       <table class="table table-hover table-striped">
@@ -30,21 +30,21 @@
               <tr>
                 <th style="width:100px;"></th>
                 <th>Nome</th>
-                <th>Detalhe</th>
+                <th>E-mail</th>
                 <th>Status</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                  <td class="text-center" colspan="4" ng-show="!listSubstancia.length"> <strong>Nao houve retorno de registros</strong></td>
+                  <td class="text-center" colspan="4" ng-show="!listUsuario.length"> <strong>Nao houve retorno de registros</strong></td>
               </tr>
-              <tr ng-show="listSubstancia.length" ng-repeat="item in listSubstancia | filter:search">
+              <tr ng-show="listUsuario.length" ng-repeat="item in listUsuario | filter:search">
                 <td>
-                    <a href="#/substancia" ng-click="remover(item, $index)" title="Remover" class="btn btn-default btn-xs"><li class="glyphicon glyphicon-trash"></li></a>
-                    <a href="#/substancia/{{item.SUB_ID}}/alterar" title="Alterar" class="btn btn-default btn-xs"><li class="glyphicon glyphicon-edit"></li></a>
+                    <a href="#/usuario" ng-click="remover(item, $index)" title="Remover" class="btn btn-default btn-xs"><li class="glyphicon glyphicon-trash"></li></a>
+                    <a href="#/usuario/{{item.USR_ID}}/alterar" title="Alterar" class="btn btn-default btn-xs"><li class="glyphicon glyphicon-edit"></li></a>
                 </td>
-                <td>{{item.SUB_NOME}}</td>
-                <td>{{item.SUB_DETALHES}}</td>
+                <td>{{item.USR_NOME}}</td>
+                <td>{{item.USR_EMAIL}}</td>
                 <td>{{item.STA_NOME}}</td>
               </tr>
               

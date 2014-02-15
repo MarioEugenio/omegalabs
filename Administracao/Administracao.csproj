@@ -143,6 +143,9 @@
     <Content Include="Src\app\substancia\initRouter.js" />
     <Content Include="Src\app\substancia\pesquisaController.js" />
     <Content Include="Src\app\substancia\substanciaController.js" />
+    <Content Include="Src\app\usuario\initRouter.js" />
+    <Content Include="Src\app\usuario\pesquisaController.js" />
+    <Content Include="Src\app\usuario\usuarioController.js" />
     <Content Include="Src\css\app.css" />
     <Content Include="Src\css\bootstrap-theme.css" />
     <Content Include="Src\css\bootstrap-theme-min.css" />
@@ -429,6 +432,12 @@
       <Project>{d545e07d-dad7-46cd-9ca9-b3f2edaf6140}</Project>
       <Name>OmegaLabsZero</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Usuario\Pesquisa.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Usuario\Usuario.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

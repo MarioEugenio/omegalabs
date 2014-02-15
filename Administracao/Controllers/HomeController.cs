@@ -10,11 +10,13 @@ namespace Administracao.Controllers
     public class HomeController : ControllerAbstract
     {
 
+        [AllowAnonymous]
         public ActionResult Index()
         {
             return View();
         }
 
+        [AllowAnonymous]
         public ActionResult Login()
         {
             return View();

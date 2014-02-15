@@ -2,13 +2,11 @@
     Layout = null;
 }
 
-  <form class="form-signin" role="form">
+  <form class="form-signin" role="form" ng-controller="LoginController" ng-submit="autenticar()">
     <h2 class="form-signin-heading">Digite seus dados</h2>
-    <input type="email" class="form-control" placeholder="Endereco de e-mail" required autofocus>
-    <input type="password" class="form-control" placeholder="Senha" required>
-    <label class="checkbox">
-        Todos os campos sao obrigatorios
-    </label>
+    <input type="email" class="form-control" ng-model="form.USR_EMAIL" placeholder="Endereco de e-mail" required autofocus>
+    <input type="password" class="form-control" ng-model="form.USR_SENHA" placeholder="Senha" required>
+
     <button class="btn btn-lg btn-primary btn-block" type="submit">Acessar Administrativo</button>
 </form>
 @*  *@

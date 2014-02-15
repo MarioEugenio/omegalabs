@@ -230,6 +230,7 @@
     <Compile Include="Models\USR_USUARIO.cs">
       <DependentUpon>OmegaModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\UsuarioViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>

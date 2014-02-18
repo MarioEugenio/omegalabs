@@ -1,1 +1,1 @@
-﻿var app = angular.module('Admin', ['ngRoute', 'mgcrea.ngStrap']);
+﻿var app = angular.module('Admin', ['ngRoute', 'mgcrea.ngStrap', 'ngTable']);

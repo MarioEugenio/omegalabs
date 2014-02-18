@@ -20,7 +20,8 @@ namespace Administracao
                         "~/Src/js/externals/angular/angular.js",
                         "~/Src/js/externals/angular/angular-route.js",
                         "~/Src/js/externals/angular/angular-strap/dist/angular-strap-min.js",
-                        "~/Src/js/externals/angular/angular-strap/dist/angular-strap-tpl-min.js"));
+                        "~/Src/js/externals/angular/angular-strap/dist/angular-strap-tpl-min.js",
+                        "~/Src/js/externals/angular/diretives/pagination/ng-table-min.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/core").Include(
                         "~/Src/js/core.js"));
@@ -35,6 +36,7 @@ namespace Administracao
 
             bundles.Add(new StyleBundle("~/Content/main/css").Include(
                 "~/Src/css/main.css",
+                "~/Src/css/ng-table.css",
                 "~/Src/css/bootstrap-min.css",
                 "~/Src/css/bootstrap-theme-min.css"));
 

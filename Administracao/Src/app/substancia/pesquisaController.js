@@ -1,16 +1,49 @@
-﻿app.controller('PesquisaController', function ($scope, $http, $alert) {
+﻿app.controller('PesquisaController', function ($scope, $http, $alert, $aside, ngTableParams) {
     $scope.listSubstancia = [];
+   
+    var data = [];
+
+    $scope.tableParams = new ngTableParams({
+        page: 1,            // show first page
+        count: 10           // count per page
+    }, {
+        total: data.length, // length of data
+        getData: function ($defer, params) {
+            $defer.resolve(data.slice((params.page() - 1) * params.count(), params.page() * params.count()));
+        }
+    });
 
     $scope.init = function () {
         $scope.getAll();
     }
 
+    $scope.openModal = function (id) {
+
+        var myOtherModal = $aside({ scope: $scope, template: baseUrl + '/Substancia/Substancia' });
+
+        myOtherModal.$promise.then(function () {
+            myOtherModal.show();
+        });
+    }
+
     $scope.getAll = function () {
 
-        $http.post(baseUrl + '/Substancia/GetAll')
-            .success(function (data) {
-                $scope.listSubstancia = data;
+        $scope.tableParams = new ngTableParams({
+            page: 1,            // show first page
+            count: 10           // count per page
+        }, {
+            total: data.length, // length of data
+            getData: function ($defer, params) {
+                $http.post(baseUrl + '/Substancia/GetAll')
+               .success(function (data) {
+                   $scope.listSubstancia = data;
+                   params.total(data.length);
+                   $defer.resolve(data.slice((params.page() - 1) * params.count(), params.page() * params.count()));
+               });
+            }
         });
+
+       
     }
 
     $scope.remover = function (item, index) {
@@ -32,6 +65,7 @@
                     });
 
                     $scope.listSubstancia.splice(index, 1);
+                    $scope.tableParams.reload();
             } else {
                 $alert({
                     title: response.message,

@@ -1,6 +1,7 @@
 ﻿app.controller('SubstanciaController', function ($scope, $http, $location, $routeParams, $alert) {
     $scope.form = {};
     $scope.listStatus = [];
+    $scope.listDerivacao = [];
 
     $scope.init = function () {
         var id = $routeParams.id;
@@ -10,6 +11,14 @@
         }
 
         $scope.getAllStatus();
+        $scope.getAll();
+    }
+
+    $scope.getAll = function () {
+        $http.post(baseUrl + '/Substancia/GetAll')
+        .success(function (data) {
+            $scope.listDerivacao = data;
+        });
     }
 
     $scope.getAllStatus = function () {

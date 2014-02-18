@@ -152,6 +152,7 @@
     <Content Include="Src\css\bootstrap.css" />
     <Content Include="Src\css\bootstrap-min.css" />
     <Content Include="Src\css\main.css" />
+    <Content Include="Src\css\ng-table.css" />
     <Content Include="Src\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Src\js\bootstrap.js" />
     <Content Include="Src\js\bootstrap-min.js" />
@@ -313,8 +314,13 @@
     <Content Include="Src\js\externals\angular\angular-strap\test\karma.conf.js" />
     <Content Include="Src\js\externals\angular\angular-min.js" />
     <Content Include="Src\js\externals\angular\angular.js" />
+    <Content Include="Src\js\externals\angular\diretives\pagination\simplePagination.js" />
+    <Content Include="Src\js\externals\angular\diretives\pagination\simplePagination.spec.js" />
+    <Content Include="Src\js\externals\angular\diretives\ui\ui-bootstrap.js" />
     <Content Include="Src\js\externals\Jquery.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>

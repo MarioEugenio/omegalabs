@@ -13,6 +13,13 @@
   </div>
 
   <div class="form-group">
+    <label for="exampleInputPassword1">Derivacao</label>
+    <select class="form-control" ng-model="form.DER_ID" ng-options="c.SUB_ID as c.SUB_NOME for c in listDerivacao">
+        <option>Selecione...</option>
+    </select>
+  </div>
+
+  <div class="form-group">
     <label for="exampleInputPassword1">Status</label>
     <select class="form-control" ng-model="form.STA_ID" ng-options="c.STA_ID as c.STA_NOME for c in listStatus" required>
         <option>Selecione...</option>

@@ -1,5 +1,17 @@
-﻿app.controller('PesquisaUsuarioController', function ($scope, $http, $alert) {
+﻿app.controller('PesquisaUsuarioController', function ($scope, $http, $alert, ngTableParams) {
     $scope.listUsuario = [];
+
+    var data = [];
+
+    $scope.tableParams = new ngTableParams({
+        page: 1,            // show first page
+        count: 10           // count per page
+    }, {
+        total: data.length, // length of data
+        getData: function ($defer, params) {
+            $defer.resolve(data.slice((params.page() - 1) * params.count(), params.page() * params.count()));
+        }
+    });
 
     $scope.init = function () {
         $scope.getAll();
@@ -7,9 +19,21 @@
 
     $scope.getAll = function () {
 
-        $http.post(baseUrl + '/Usuario/GetAll')
-            .success(function (data) {
-                $scope.listUsuario = data;
+        $scope.tableParams = new ngTableParams({
+            page: 1,            // show first page
+            count: 10           // count per page
+        }, {
+            total: data.length, // length of data
+            getData: function ($defer, params) {
+                $http.post(baseUrl + '/Usuario/GetAll')
+               .success(function (data) {
+                   $scope.listUsuario = data;
+
+                   params.total(data.length);
+
+                   $defer.resolve(data.slice((params.page() - 1) * params.count(), params.page() * params.count()));
+               });
+            }
         });
     }
 
